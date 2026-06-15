@@ -39,7 +39,20 @@ Access control ensures that users can only access and delete their own tasks.
 * Centralized error handling middleware
 * Async error wrapper using catchAsync utility
 
----
+## Challenges Encountered
+
+During development, several technical challenges were encountered and resolved:
+
+* **Mongoose Middleware:** Updated password hashing middleware to use modern async syntax, removing deprecated `next()` usage in async hooks.
+* **Express 5 Compatibility:** Some security packages such as `xss-clean` and `express-mongo-sanitize` caused compatibility issues with Express 5 and required alternative implementations or adjustments.
+* **Model Compilation:** Resolved `OverwriteModelError` by preventing Mongoose from recompiling existing models.
+* **Multiple Authentication Methods:** Adapted the User model to support both local JWT authentication and Google OAuth users.
+* **Secure Authentication:** Implemented JWT storage in HTTP-only cookies for improved security.
+* **Access Control:** Ensured users can only manage their own tasks through ownership verification.
+* **Brute-Force Protection:** Added rate limiting to sensitive authentication routes.
+* **Error Handling:** Centralized application error management using `AppError`, `catchAsync`, and a global error handler.
+
+--------------
 
 ## Tech Stack
 

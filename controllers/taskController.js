@@ -68,4 +68,4 @@ const deleteTask = catchAsync(async (req, res, next) => {
 
 });
 
-module.exports = { createTask, getTasks, deleteTask };
+module.exports = { createTask, getTasks, editTask, deleteTask };

@@ -59,10 +59,8 @@ app.use(passport.session());
 // Security middlewares
 app.use(helmet());
 
-//
-const rateLimiter = require('./middlewares/rateLimiter');
+//Limit request attempts
 app.use(rateLimiter);
-
 // Sanitize req.body and req.params only to avoid assigning to read-only req.query
 app.use((req, res, next) => {
     try {
@@ -73,7 +71,7 @@ app.use((req, res, next) => {
     }
     next();
 });
-app.use(mongoSanitize());
+// app.use(mongoSanitize());
 
 //Routes
 

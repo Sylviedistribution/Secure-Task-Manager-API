@@ -9,7 +9,7 @@ router.route('/')
 
 router.route('/:id')
   .get(protect, userController.getUser)
-  .put(protect, userController.updateUser)
+  .put(protect, userController.editUser)
   .delete(protect, userController.deleteUser)
 
 

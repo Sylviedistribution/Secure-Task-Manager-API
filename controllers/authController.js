@@ -4,6 +4,7 @@ const { signToken } = require('../utils/jwt');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
+
 const createSendToken = (user, res, statusCode = 200) => {
     const token = signToken(user._id);
     const cookieOptions = {
